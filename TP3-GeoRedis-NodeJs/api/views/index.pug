@@ -1,0 +1,92 @@
+doctype html
+head
+  meta(charset='utf-8')
+  meta(name='viewport' content='width=device-width, initial-scale=1, shrink-to-fit=no')
+  meta(name='description' content='')
+  title Dashboard Template &middot; Bootstrap
+  link(rel='canonical' href='https://getbootstrap.com/docs/4.3/examples/dashboard/')
+  // Bootstrap core CSS
+  link(rel='stylesheet' href='/bootstrap/bootstrap.css')
+  link(href='/style/style.css', rel='stylesheet')
+  script(type='text/javascript', src='https://maps.googleapis.com/maps/api/staticmap?\
+  key=AIzaSyCkBQvI2YV2Yyj6Ra1C-9X5KJPngi4kIos&sensor=false')
+
+
+  
+nav.navbar.navbar-dark.fixed-top.bg-dark.flex-md-nowrap.p-0.shadow
+  a.navbar-brand.col-sm-3.col-md-2.mr-0(href='#') Geo Api
+  
+  ul.navbar-nav.px-3
+   
+     
+.container-fluid
+  .row
+    nav.col-md-2.d-none.d-md-block.bg-light.sidebar
+      .sidebar-sticky
+        ul.nav.flex-column
+          li.nav-item
+            a.nav-link.active(href='/')
+              span(data-feather='home')
+              |               Yo 
+              span.sr-only (current)
+          li.nav-item
+            a.nav-link(href='/geopos?r=0')
+              span(data-feather='coffee')
+              |               Cervecerias
+          li.nav-item
+            a.nav-link(href='/geopos?r=1')
+              span(data-feather='book-open')
+              |               Universidades
+          li.nav-item
+            a.nav-link(href='/geopos?r=2')
+              span(data-feather='thermometer')
+              |               Farmacias
+          li.nav-item
+            a.nav-link(href='/geopos?r=3')
+              span(data-feather='activity')
+              |               Centros de atención
+          li.nav-item
+            a.nav-link(href='/geopos?r=4')
+              span(data-feather='shopping-cart')
+              |               Supermercados
+        
+    main.col-md-9.ml-sm-auto.col-lg-10.px-4(role='main')
+      .d-flex.justify-content-between.flex-wrap.flex-md-nowrap.align-items-center.pt-3.pb-2.mb-3.border-bottom
+       form(name='form1',method='POST', action='/georadio') 
+          p Latitud
+          .slidecontainer
+            input#myRange.slider(type='range',name='lat', min='32.410100', max='32.510900',step='0.000101' value='32.450200')
+            p
+              | Value: - 
+              span#demo
+          p Longitud
+          .slidecontainer
+            input#myRange2.slider(type='range',name='long', min='58.210100', max='58.319100',step='0.000101' value='58.270900')
+            p
+              | Value: - 
+              span#demo2
+          input.btn.btn-primary(type='submit', value='Radio')
+      form(name='form2',method='POST', action='/dist')
+        .form-group
+          label Grupo-->
+          input(type='text', name='grupo', placeholder='', autocomplete='off')
+        .form-group
+          label Lugar-->
+           input(type='text', name='lugar', placeholder='', autocomplete='off')
+           input(type='text', name='lat',onkeyup='form1.lat.value=form2.lat.value', hidden)
+           input(type='text', name='long',onkeyup='form1.long.value=form2.long.value' hidden)
+        input.btn.btn-primary(type='submit', value='Distancia', 
+        onClick='document.form2.lat.value=document.form1.lat.value,document.form2.long.value=document.form1.long.value')
+      
+      
+      block content
+     
+             
+            
+script(src='https://code.jquery.com/jquery-3.3.1.slim.min.js' integrity='sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo' crossorigin='anonymous')
+script.
+  window.jQuery || document.write('<script src="/docs/4.3/assets/js/vendor/jquery-slim.min.js"><\\/script>')
+script(src='/docs/4.3/dist/js/bootstrap.bundle.min.js' integrity='sha384-xrRywqdh3PHs8keKZN+8zzc5TX0GRTLCcmivcbNJWm2rs5C8PRhcEn3czEjhAO9o' crossorigin='anonymous')
+script(src='https://cdnjs.cloudflare.com/ajax/libs/feather-icons/4.9.0/feather.min.js')
+script(src='https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.3/Chart.min.js')
+script(src='/script/script.js')

@@ -1,0 +1,37 @@
+extends index.pug
+
+block content
+    h2 Mis grupos
+    .table-responsive
+    table.table.table-striped.table-sm
+        thead
+            tr
+            th Lugar
+            th Distancia
+            th Coordenadas
+        tbody
+        each lugar in radio0    
+            tr
+            td #{lugar[0]}     
+            td #{lugar[1]} Km
+            td #{lugar[2]}
+        each lugar in radio1   
+            tr
+            td #{lugar[0]}     
+            td #{lugar[1]} Km
+            td #{lugar[2]}
+        each lugar in radio2    
+            tr
+            td #{lugar[0]}     
+            td #{lugar[1]} Km
+            td #{lugar[2]}
+        each lugar in radio3    
+            tr
+            td #{lugar[0]}     
+            td #{lugar[1]} Km
+            td #{lugar[2]}
+        each lugar in radio4    
+            tr
+            td #{lugar[0]}     
+            td #{lugar[1]} Km
+            td #{lugar[2]}
